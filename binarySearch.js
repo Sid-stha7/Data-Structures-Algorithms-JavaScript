@@ -1,25 +1,26 @@
-function birarySearch(arr, target ){
-
-    let left_index= 0
-    let right_index= arr.length-1
+function binary(arr,target){
 
 
-    while (left_index<=right_index)
-    {
-       let middle_index= Math.floor((left_index+right_index)/2)
-        if (target === arr[middle_index]) {
-            return middle_index
-            
-        }
-        if (target < arr[middle_index] ) {
-            right_index= middle_index-1
-        }
+    let left=0 ;
+    let right= arr.length -1
 
-        if (target>arr[middle_index]) {
-            left_index= middle_index+1
-        }
+    while (left<right){ 
+        let mid= Math.floor((left+right)/2)
+    
+    if (arr[mid]===target) {
+        return mid
+    }
+
+    if (target<arr[mid]) {
+        right=mid-1
+        
+    }
+    if (target>arr[mid]) {
+        left=mid+1
+    }
+
     }
     return -1
 }
 
-console.log(birarySearch([1,2,3,4,5], 5));
+console.log(binary([1,2,3,4,5,6,7,8,9,10,11],9));
